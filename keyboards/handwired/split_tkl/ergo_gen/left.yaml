@@ -1,0 +1,83 @@
+units:
+  spacing: 1
+  choc_cutout: 14
+
+points:
+  key:
+    padding: cy + spacing
+    spread: cx + spacing
+    height: cy
+    width: cx
+  zones:
+    macro:
+      anchor:
+      columns:
+        one:
+        two:
+      rows:
+        0:
+        1:
+        2:
+        3:
+        4:
+        5:
+          shift: [0, 7]
+    matrix:
+      anchor:
+        ref: macro_two_1
+        shift: [cx + spacing + 7, 0]
+      columns:
+        esc:
+        pinky:
+        ring:
+          key.stagger: 12
+        middle:
+          key.stagger: 7
+        index:
+          key.stagger: -7
+        inner:
+          key.stagger: -2
+      rows:
+        bottom:
+        home:
+        top:
+        num:
+        fxn:
+          shift: [0, 7]
+    ctrl:
+      anchor:
+        ref: macro_two_0
+        shift: [cx + spacing + 7, 0]
+      columns:
+        ctrl:
+        windows:
+        alt:
+          key.stagger: 12
+    space:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [0, -25]
+        rotate: -10
+      columns:
+        layer.key.rotate: -10
+        layer.key.shift: [-7, 0]
+        space.key.rotate: -10
+outlines:
+  left:
+    - where: true
+      what: rectangle
+      size: [cx + 12, cy + 12]
+      fillet: 2
+  leftkeys:
+    - where: true
+      what: rectangle
+      size: [choc_cutout, choc_cutout]
+  leftcutout:
+    - name: left
+    - operation: subtract
+      name: leftkeys
+
+cases:
+  plate:
+    -name: leftcutout
+    extrued: 1.2

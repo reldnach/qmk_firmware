@@ -1,0 +1,109 @@
+units:
+  spacing: 1
+  choc_cutout: 14
+
+points:
+  key:
+    padding: cy + spacing
+    spread: cx + spacing
+    height: cy
+    width: cx
+  zones:
+    matrix:
+      anchor:
+      columns:
+        inner:
+        index:
+          key.stagger: 2
+        middle:
+          key.stagger: 7
+        ring:
+          key.stagger: -7
+        pinky:
+          key.stagger: -12
+        comma:
+      rows:
+        bottom:
+        home:
+        top:
+        num:
+        fxn:
+          shift: [0, 7]
+    return:
+      anchor:
+        ref: matrix_comma_home
+        shift: [cx + spacing, 0]
+      columns:
+        col:
+      rows:
+        home:
+        top:
+        num:
+        fxn:
+          shift: [0, 7]
+    backslash:
+      anchor:
+        ref: return_col_top
+        shift: [cx + spacing, 0]
+      rows:
+        top:
+        num:
+        fxn:
+          shift: [0, 7]
+    ctrl:
+      anchor:
+        ref: matrix_ring_bottom
+        shift: [0, -cy - spacing]
+      columns:
+        ring:
+        pinky:
+          key.stagger: -12
+        comma:
+    space:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [0, -25]
+        rotate: 10
+      columns:
+        layer.key.rotate: 10
+        layer.key.shift: [7, 0]
+        space.key.rotate: 10
+        space.key.shift: [-2cx, 0]
+    arrows:
+      anchor:
+        ref: matrix_comma_bottom
+        shift: [cx + spacing + 5, -5]
+      columns:
+        left:
+        down:
+          rows:
+            down:
+            up:
+        right:
+          rows:
+            right:
+            top:
+              shift: [0, cy + spacing + 5]
+            num:
+            fxn:
+              shift: [0, 7]
+
+outlines:
+  right:
+    - where: true
+      what: rectangle
+      size: [cx + 12, cy + 12]
+      fillet: 2
+  rightkeys:
+    - where: true
+      what: rectangle
+      size: [choc_cutout, choc_cutout]
+  rightcutout:
+    - name: right
+    - operation: subtract
+      name: rightkeys
+
+cases:
+  plate:
+    -name: rightcutout
+    extrued: 1.2
