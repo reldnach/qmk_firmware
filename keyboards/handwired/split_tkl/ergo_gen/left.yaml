@@ -1,13 +1,15 @@
 units:
   spacing: 1
-  choc_cutout: 14
+  gat_cutout: 14.2
+  cap_y: 18.4
+  cap_x: 18.4
 
 points:
   key:
-    padding: cy + spacing
-    spread: cx + spacing
-    height: cy
-    width: cx
+    padding: cap_y + spacing
+    spread: cap_x + spacing
+    height: cap_y
+    width: cap_x
   zones:
     macro:
       anchor:
@@ -25,7 +27,7 @@ points:
     matrix:
       anchor:
         ref: macro_two_1
-        shift: [cx + spacing + 7, 0]
+        shift: [cap_x + spacing + 7, 0]
       columns:
         esc:
         pinky:
@@ -47,7 +49,7 @@ points:
     ctrl:
       anchor:
         ref: macro_two_0
-        shift: [cx + spacing + 7, 0]
+        shift: [cap_x + spacing + 7, 0]
       columns:
         ctrl:
         windows:
@@ -66,12 +68,12 @@ outlines:
   left:
     - where: true
       what: rectangle
-      size: [cx + 12, cy + 12]
+      size: [cap_x + 12, cap_y + 12]
       fillet: 2
   leftkeys:
     - where: true
       what: rectangle
-      size: [choc_cutout, choc_cutout]
+      size: [gat_cutout, gat_cutout]
   leftcutout:
     - name: left
     - operation: subtract

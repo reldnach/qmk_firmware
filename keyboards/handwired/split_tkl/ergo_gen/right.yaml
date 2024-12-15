@@ -1,13 +1,15 @@
 units:
   spacing: 1
-  choc_cutout: 14
+  gat_cutout: 14.2
+  cap_y: 18.4
+  cap_x: 18.4
 
 points:
   key:
-    padding: cy + spacing
-    spread: cx + spacing
-    height: cy
-    width: cx
+    padding: cap_y + spacing
+    spread: cap_x + spacing
+    height: cap_y
+    width: cap_x
   zones:
     matrix:
       anchor:
@@ -32,7 +34,7 @@ points:
     return:
       anchor:
         ref: matrix_comma_home
-        shift: [cx + spacing, 0]
+        shift: [cap_x + spacing, 0]
       columns:
         col:
       rows:
@@ -44,7 +46,7 @@ points:
     backslash:
       anchor:
         ref: return_col_top
-        shift: [cx + spacing, 0]
+        shift: [cap_x + spacing, 0]
       rows:
         top:
         num:
@@ -53,7 +55,7 @@ points:
     ctrl:
       anchor:
         ref: matrix_ring_bottom
-        shift: [0, -cy - spacing]
+        shift: [0, -cap_y - spacing]
       columns:
         ring:
         pinky:
@@ -68,11 +70,11 @@ points:
         layer.key.rotate: 10
         layer.key.shift: [7, 0]
         space.key.rotate: 10
-        space.key.shift: [-2cx, 0]
+        space.key.shift: [-2cap_x, 0]
     arrows:
       anchor:
         ref: matrix_comma_bottom
-        shift: [cx + spacing + 5, -5]
+        shift: [cap_x + spacing + 5, -5]
       columns:
         left:
         down:
@@ -83,7 +85,7 @@ points:
           rows:
             right:
             top:
-              shift: [0, cy + spacing + 5]
+              shift: [0, cap_y + spacing + 5]
             num:
             fxn:
               shift: [0, 7]
@@ -92,12 +94,12 @@ outlines:
   right:
     - where: true
       what: rectangle
-      size: [cx + 12, cy + 12]
+      size: [cap_x + 12, cap_y + 12]
       fillet: 2
   rightkeys:
     - where: true
       what: rectangle
-      size: [choc_cutout, choc_cutout]
+      size: [gat_cutout, gat_cutout]
   rightcutout:
     - name: right
     - operation: subtract
